@@ -1,0 +1,10 @@
+./out/linuxx86_64/optimize/libs/csplugincommon/opengl/assumedstate.o
+./out/linuxx86_64/optimize/libs/csplugincommon/opengl/driverdb.o
+./out/linuxx86_64/optimize/libs/csplugincommon/opengl/glcanvascommon.o
+./out/linuxx86_64/optimize/libs/csplugincommon/opengl/glcommon2d.o
+./out/linuxx86_64/optimize/libs/csplugincommon/opengl/glfontcache.o
+./out/linuxx86_64/optimize/libs/csplugincommon/opengl/glss.o
+./out/linuxx86_64/optimize/libs/csplugincommon/opengl/glstates.o
+./out/linuxx86_64/optimize/libs/csplugincommon/opengl/shaderplugin.o
+./out/linuxx86_64/optimize/libs/csplugincommon/opengl/staticvarcleanup.o
+

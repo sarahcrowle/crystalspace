@@ -1,0 +1,21 @@
+@c -*-texinfo-*-
+@node Contributing, Glossary, Internals, Top
+@chapter Contributing to Crystal Space
+
+@imports{contrib,intro.txi}
+
+@menu
+* Writing Documentation::
+* Portability::
+* Coding Style::
+* SVN Guide:: @sc{svn} Etiquette Guidelines
+* Porting:: Porting to a New Platform
+* Demos:: Writing test and demo applications
+@end menu
+
+@imports{contrib,document.txi}
+@imports{contrib,portable.txi}
+@imports{contrib,coding.txi}
+@imports{contrib,svn.txi}
+@imports{contrib,porting.txi}
+@imports{contrib,demos.txi}

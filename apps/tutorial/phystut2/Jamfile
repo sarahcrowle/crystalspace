@@ -1,0 +1,9 @@
+SubDir TOP apps tutorial phystut2 ;
+
+if $(BULLET.AVAILABLE) = "yes"
+{
+  Description phystut2 : "physics tutorial" ;
+  Application phystut2 : [ Wildcard *.cpp *.h ] ;
+  LinkWith phystut2 : crystalspace ;
+  FileListEntryApplications phystut2 : app-demo ;
+}

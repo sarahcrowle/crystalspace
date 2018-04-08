@@ -1,0 +1,58 @@
+@c -*-texinfo-*-
+@node Demos, , Porting, Contributing
+@section Writing test and demo applications
+@cindex Demos
+
+This section provides information useful to developers who wish to write demo
+and test applications for the features they have added in Crystal Space.
+
+There are mainly two sets of tools that are designed to help write and showcase
+test applications:
+
+@itemize @bullet
+@item
+The @file{startme} demo browser.
+@item
+The @code{CS::Utility::DemoApplication} facility.
+@end itemize
+
+@subsubheading The @file{startme} demo browser
+
+The @file{startme} application is supposed to be the main tool used by a new user
+of Crystal Space who wish to have an insight of the functionalities available. It
+allows to navigate in a list of demo and test applications, with a short description
+and a screenshot of them, and the ability to launch and close those applications.
+
+The list of applications and their description is defined in the file
+@file{data/config-app/startme.cfg}. The screenshots to be used are held in the file
+@file{data/startme.zip}.
+
+@subsubheading The @code{CS::Utility::DemoApplication} facility
+
+The @code{CS::Utility::DemoApplication} and related classes provide the basic
+functionalities for Crystal Space's demo and test applications. Most demos, tests
+and tutorials would want to use this class in order to simplify their code, make it
+more pertinent for the user, and unify the graphical and general layout between all
+applications.
+
+The kind of functionalities provided by those classes are the creation of the main
+objects of the engine and of the scenes, the camera management, the user interaction
+through command line arguments and Head-up Displays, etc.
+
+The advantages when using it are:
+
+@itemize @bullet
+@item
+Most basic functionalities commonly needed are already implemented.
+@item
+The code of the demo will be simplified and therefore will get more pertinent for
+the user.
+@item
+It unifies the graphical layout and the user interaction between all CS applications.
+@item
+The application would get easier to maintain and may benefit freely of improvements
+made to the CS::Utility::DemoApplication facility
+@item
+Hopefully, it would help the developer to add a bit more explanations on its
+application and the available options ;)
+@end itemize

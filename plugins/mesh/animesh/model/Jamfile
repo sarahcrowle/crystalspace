@@ -1,0 +1,6 @@
+SubDir TOP plugins mesh animesh model ;
+
+Description skeletonmodel : "Physical description of the skeleton of an animated mesh" ;
+Plugin skeletonmodel : [ Wildcard *.cpp *.h ] ;
+LinkWith skeletonmodel : crystalspace ;
+CompileGroups skeletonmodel : meshes ;

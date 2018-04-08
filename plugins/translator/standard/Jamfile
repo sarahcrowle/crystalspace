@@ -1,0 +1,7 @@
+SubDir TOP plugins translator standard ;
+
+Description trans_std : "Standard Translator" ;
+Plugin trans_std : [ Wildcard *.cpp *.h ] ;
+Includes transldr_xml.h : $(SUBDIR)/transldr_xml.tok ;
+MsvcExtraFile trans_std : $(SUBDIR)/transldr_xml.tok ;
+LinkWith trans_std : crystalspace ;

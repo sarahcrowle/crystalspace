@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created by texi2html 1.76 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
+-->
+<head>
+<title>Crystal Space 2.1.0: 4.14.4 The new collision and physics framework</title>
+
+<meta name="description" content="Crystal Space 2.1.0: 4.14.4 The new collision and physics framework">
+<meta name="keywords" content="Crystal Space 2.1.0: 4.14.4 The new collision and physics framework">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.76">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Physics2"></a>
+<a name="0"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="Physics-ODE.html#0" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Animation.html#0" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="Using-Crystal-Space.html#0" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Collision-Detection.html#0" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="Working-with-Engine-Content.html#0" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="cs_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="cs_Index.html#0" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="cs_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<hr size="1">
+<h3 class="subsection"> 4.14.4 The new collision and physics framework </h3>
+
+<p>This section describes the new framework to be used for both collision detection and
+physical simulation.
+</p>
+<p>The main changes introduced by this plugin versus the previous solutions are:
+</p>
+<ul>
+<li>
+Both collision detection and physical simulation are managed by the plugin, allowing
+to use both of them at the same time although this was not really possible previously.
+</li><li>
+There is now a clear correlation introduced between sectors managed by the 3D engine
+(<code>iSector</code> objects) and physical worlds (<code>CS::Collisions::iCollisionSector</code>
+objects). There is now also the possibility to define collision portals in order to link
+together several different worlds.
+</li><li>
+Still similarly to the objects manipulated by the 3D engine, there are now concepts of
+object factories that allow to define collision and physical properties prior their
+instanciation.
+</li><li>
+The API now uses heavily C++ inheritance, hopefully being more easy to use than before.
+</li><li>
+There are several new object primitives such as physical actors and vehicles.
+</li></ul>
+
+<a name="1"></a>
+<h4 class="subsubheading"> General presentation </h4>
+
+<p>The collision and physical functionalities are split API-wise within the <code>CS::Collisions</code>
+and the <code>CS::Physics</code> namespaces. Most objects from the the <code>CS::Physics</code> namespace
+will inherit from an interface of <code>CS::Collisions</code> and will improve it with additional
+physical functionalities.
+</p>
+<p>The namespace <code>CS::Physics::Bullet</code> is part of the initial physics plugin and should be
+ignored here.
+</p>
+<a name="2"></a>
+<h4 class="subsubheading"> Migrating from the previous physics plugin </h4>
+
+<p>To migrate a code written for the initial physics plugin, the main things you would have to
+manage would be:
+</p>
+<ul>
+<li>
+The name of the object interfaces should have changed, mainly through the move into the
+<code>CS::Physics</code> namespace. Hopefully the name and signature of the methods of those
+interfaces have not been changed.
+</li><li>
+The API now uses inheritance so you shouldn't need anymore to access a specific interface
+through SCF queries.
+</li><li>
+The objects are now defined through factories, and that changes radically the way they are
+initialized.
+</li><li>
+For the additional external tools that were previously in Crystal Space such as the soft
+body animation controller and the ragdoll animation node, there are now alternate versions
+of those plugins to be used instead (namely the <code>CS::Animation::iSoftBodyAnimationControl2</code>
+and <code>CS::Animation::iSkeletonRagdollNode2</code> interfaces).
+</li><li>
+The former interface <code>iDynamicSystem</code> has now became <code>CS::Collisions::iCollisionSector</code>.
+</li></ul>
+
+
+
+<hr size="1">
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="Physics-ODE.html#0" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Animation.html#0" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="Using-Crystal-Space.html#0" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="Collision-Detection.html#0" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="Working-with-Engine-Content.html#0" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="index.html#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="cs_toc.html#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="cs_Index.html#0" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="cs_abt.html#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<p>
+ <font size="-1">
+  This document was generated using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.76</em></a>.
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

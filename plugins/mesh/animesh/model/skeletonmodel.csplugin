@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- skeletonmodel.csplugin -->
+<plugin>
+  <scf>
+    <classes>
+      <class>
+        <name>crystalspace.mesh.animesh.model</name>
+        <implementation>ModelManager</implementation>
+        <description>Physical description of the skeleton of an animated mesh</description>
+      </class>
+    </classes>
+  </scf>
+</plugin>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- hacd.csplugin -->
+<plugin>
+  <scf>
+    <classes>
+      <class>
+        <name>crystalspace.mesh.convexdecompose.hacd</name>
+        <implementation>ConvexDecomposer</implementation>
+        <description>Decompose concave meshes in a convex set</description>
+      </class>
+    </classes>
+  </scf>
+</plugin>

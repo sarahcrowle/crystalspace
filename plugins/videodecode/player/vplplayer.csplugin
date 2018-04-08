@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- vplplayer.csplugin -->
+<plugin>
+  <scf>
+    <classes>
+      <class>
+        <name>crystalspace.videodecode.player</name>
+        <implementation>csVplPlayer</implementation>
+        <description>Generic Media Player</description>
+      </class>
+    </classes>
+  </scf>
+</plugin>

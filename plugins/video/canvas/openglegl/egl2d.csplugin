@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- egl2d.csplugin -->
+<plugin>
+  <scf>
+    <classes>
+      <class>
+        <name>crystalspace.graphics2d.egl</name>
+        <implementation>csGraphics2DEGL</implementation>
+        <description>Crystal Space 2D driver for OpenGL using EGL</description>
+        <requires>
+          <class>crystalspace.font.server.</class>
+        </requires>
+      </class>
+    </classes>
+  </scf>
+</plugin>

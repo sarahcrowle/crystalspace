@@ -1,0 +1,2 @@
+libcrystalspace-2.1.dbg:libcrystalspace-2.1.dbg
+libcrystalspace_opengl-2.1.dbg:libcrystalspace_opengl-2.1.dbg

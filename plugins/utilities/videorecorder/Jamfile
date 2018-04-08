@@ -1,0 +1,9 @@
+SubDir TOP plugins utilities videorecorder ;
+
+if $(FFMPEG.AVAILABLE) = "yes"
+{
+  Description videorecorder : "realtime video recorder" ;
+  Plugin videorecorder : [ Wildcard *.cpp *.h *.c ] ;
+  LinkWith videorecorder : crystalspace ;
+  ExternalLibs videorecorder : FFMPEG ;
+}

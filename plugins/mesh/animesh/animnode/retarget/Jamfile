@@ -1,0 +1,6 @@
+SubDir TOP plugins mesh animesh animnode retarget ;
+
+Description an-retarget : "Retarget animation node plugin for an animated mesh object" ;
+Plugin an-retarget : [ Wildcard *.cpp *.h ] ;
+LinkWith an-retarget : crystalspace ;
+CompileGroups an-retarget : meshes ;

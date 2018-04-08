@@ -1,0 +1,14 @@
+SubDir TOP plugins video canvas openglegl ;
+
+if $(EGL.AVAILABLE) = "yes"
+{
+Description egl2d : "EGL 2D driver" ;
+Plugin egl2d : [ Wildcard *.cpp *.h ] ;
+LinkWith egl2d : crystalspace_opengl crystalspace ;
+if $(XRENDER.AVAILABLE) = "yes"
+{
+  CFlags egl2d : [ FDefines CS_HAVE_XRENDER ] ;
+}
+ExternalLibs egl2d : EGL GLX XRENDER ;
+CompileGroups egl2d : canvases openglcanvas ;
+}

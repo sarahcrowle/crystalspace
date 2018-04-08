@@ -1,0 +1,5 @@
+SubDir TOP plugins videodecode player ;
+
+Description vplplayer : "video player" ;
+Plugin vplplayer : [ Wildcard *.cpp *.h ] ;
+LinkWith vplplayer : crystalspace ;

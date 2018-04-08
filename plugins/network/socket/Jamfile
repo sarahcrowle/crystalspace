@@ -1,0 +1,11 @@
+SubDir TOP plugins network socket ;
+
+Description cssocket : "CrystalSpace Socket Plugin" ;
+
+Plugin cssocket : [ Wildcard *.cpp *.h ] ;
+LinkWith cssocket : crystalspace ;
+MsvcExternalLibrary cssocket : "ws2_32.lib" ;
+if $(TARGET.OS) = "WIN32"
+{
+  LFlags cssocket : -lws2_32 ;
+}

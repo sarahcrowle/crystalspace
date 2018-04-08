@@ -1,0 +1,2 @@
+    if (!extstr) return;
+    CS_%Name% = CheckExtension (extstr, ext);

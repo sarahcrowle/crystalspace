@@ -1,0 +1,7 @@
+SubDir TOP plugins mesh animesh persist model ;
+
+Description modelldr : "Skeleton model loader" ;
+Plugin modelldr : [ Wildcard *.cpp *.h ] ;
+Includes modelldr.h : $(SUBDIR)/modelldr.tok ;
+LinkWith modelldr : crystalspace ;
+CompileGroups modelldr : meshes ;

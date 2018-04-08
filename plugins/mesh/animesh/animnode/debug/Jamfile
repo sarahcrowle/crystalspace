@@ -1,0 +1,6 @@
+SubDir TOP plugins mesh animesh animnode debug ;
+
+Description an-debug : "Debug animation nodes plugin for an animated mesh object" ;
+Plugin an-debug : [ Wildcard *.cpp *.h ] ;
+LinkWith an-debug : crystalspace ;
+CompileGroups an-debug : meshes ;

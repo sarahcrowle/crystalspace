@@ -1,0 +1,7 @@
+SubDir TOP plugins rendermanager posteffect ;
+
+Description posteffect : "Post Effect system" ;
+
+Plugin posteffect : [ Wildcard *.cpp *.h ] ;
+CompileGroups posteffect : rendermanagers ;
+LinkWith posteffect : crystalspace ;

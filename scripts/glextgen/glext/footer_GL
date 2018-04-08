@@ -1,0 +1,2 @@
+// Compatibilty typedef
+typedef CS::GLExtensionManager csGLExtensionManager;

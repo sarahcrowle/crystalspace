@@ -1,0 +1,5 @@
+SubDir TOP apps tests sockettest ;
+
+Description sockettest : "socket tester" ;
+Application sockettest : [ Wildcard *.cpp *.h ] : noinstall console ;
+LinkWith sockettest : crystalspace ;

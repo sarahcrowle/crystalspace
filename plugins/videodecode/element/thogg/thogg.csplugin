@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- thogg.csplugin -->
+<plugin>
+  <scf>
+    <classes>
+      <class>
+        <name>crystalspace.videodecode.element.thogg</name>
+        <implementation>csThOggLoader</implementation>
+        <description>Theora OGG Video Player Element</description>
+      </class>
+    </classes>
+  </scf>
+</plugin>

@@ -1,0 +1,9 @@
+SubDir TOP plugins videodecode element thogg ;
+
+if $(THEORADEC.AVAILABLE) = "yes" && $(VORBIS.AVAILABLE) = "yes"
+{
+  Description thogg : "theora-ogg video decoder" ;
+  Plugin thogg : [ Wildcard *.cpp *.h ] ;
+  LinkWith thogg : crystalspace ;
+  ExternalLibs thogg : THEORADEC VORBIS ;
+}

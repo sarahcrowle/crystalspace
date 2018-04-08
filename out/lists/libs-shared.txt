@@ -1,0 +1,2 @@
+./out/linuxx86_64/optimize/libs/libcrystalspace-2.1.so:libcrystalspace-2.1.so
+./out/linuxx86_64/optimize/libs/libcrystalspace_opengl-2.1.so:libcrystalspace_opengl-2.1.so

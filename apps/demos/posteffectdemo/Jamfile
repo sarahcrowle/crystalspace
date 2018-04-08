@@ -1,0 +1,11 @@
+SubDir TOP apps demos posteffectdemo ;
+
+if $(WX.AVAILABLE) = "yes"
+{
+  Description posteffectdemo : "Demonstrates the use of post effects" ;
+  Application posteffectdemo : [ Wildcard *.cpp *.h ] ;
+  ExternalLibs posteffectdemo : WX ;
+  CFlags posteffectdemo : $(COMPILER.C++FLAGS.EXCEPTIONS.ENABLE) ;
+  LinkWith posteffectdemo : crystalspace ;
+  FileListEntryApplications posteffectdemo : app-demo ;
+}

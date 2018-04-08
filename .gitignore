@@ -1,0 +1,10 @@
+data/
+*.xz
+*.exe
+*.dll
+*.lib
+*.dbg
+*.a
+*.so
+*.o
+*.obj

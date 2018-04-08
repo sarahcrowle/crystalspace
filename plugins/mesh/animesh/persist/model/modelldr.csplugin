@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- modelldr.csplugin -->
+<plugin>
+  <scf>
+    <classes>
+      <class>
+        <name>crystalspace.mesh.loader.skeleton.model</name>
+        <implementation>ModelLoader</implementation>
+        <description>Crystal Space loader of the physical description of the skeleton an animated mesh</description>
+      </class>
+    </classes>
+  </scf>
+</plugin>

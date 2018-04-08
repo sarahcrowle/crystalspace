@@ -1,0 +1,6 @@
+SubDir TOP plugins network eventmanager ;
+
+Description csnetworkeventmanager : "CrystalSpace Network Event Manager Plugin" ;
+
+Plugin csnetworkeventmanager : [ Wildcard *.cpp *.h ] ;
+LinkWith csnetworkeventmanager : crystalspace ;

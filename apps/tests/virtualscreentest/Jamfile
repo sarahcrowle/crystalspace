@@ -1,0 +1,10 @@
+SubDir TOP apps tests virtualscreentest ;
+
+if $(CEGUI.AVAILABLE) = "yes"
+{
+  Description virtualscreentest : "Virtual CEGUI Screen test" ;
+  Application virtualscreentest : [ Wildcard *.cpp *.h ] : noinstall ;
+  CFlags virtualscreentest : $(COMPILER.C++FLAGS.EXCEPTIONS.ENABLE) ;
+  LinkWith virtualscreentest : crystalspace ;
+  ExternalLibs virtualscreentest : CEGUI ;
+}

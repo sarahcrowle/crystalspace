@@ -1,0 +1,5 @@
+SubDir TOP apps tests networkeventservertest ;
+
+Description networkeventservertest : "network event server tester" ;
+Application networkeventservertest : [ Wildcard *.cpp *.h ] : noinstall console ;
+LinkWith networkeventservertest : crystalspace ;

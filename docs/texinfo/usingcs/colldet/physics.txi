@@ -1,0 +1,63 @@
+@c -*-texinfo-*-
+@node Physics2, , Physics ODE, Collision Detection
+@subsection The new collision and physics framework
+@cindex physics2
+
+This section describes the new framework to be used for both collision detection and
+physical simulation.
+
+The main changes introduced by this plugin versus the previous solutions are:
+
+@itemize @bullet
+@item
+Both collision detection and physical simulation are managed by the plugin, allowing
+to use both of them at the same time although this was not really possible previously.
+@item
+There is now a clear correlation introduced between sectors managed by the 3D engine
+(@code{iSector} objects) and physical worlds (@code{CS::Collisions::iCollisionSector}
+objects). There is now also the possibility to define collision portals in order to link
+together several different worlds.
+@item
+Still similarly to the objects manipulated by the 3D engine, there are now concepts of
+object factories that allow to define collision and physical properties prior their
+instanciation.
+@item
+The API now uses heavily C++ inheritance, hopefully being more easy to use than before.
+@item
+There are several new object primitives such as physical actors and vehicles.
+@end itemize
+
+@subsubheading General presentation
+
+The collision and physical functionalities are split API-wise within the @code{CS::Collisions}
+and the @code{CS::Physics} namespaces. Most objects from the the @code{CS::Physics} namespace
+will inherit from an interface of @code{CS::Collisions} and will improve it with additional
+physical functionalities.
+
+The namespace @code{CS::Physics::Bullet} is part of the initial physics plugin and should be
+ignored here.
+
+@subsubheading Migrating from the previous physics plugin
+
+To migrate a code written for the initial physics plugin, the main things you would have to
+manage would be:
+
+@itemize @bullet
+@item
+The name of the object interfaces should have changed, mainly through the move into the
+@code{CS::Physics} namespace. Hopefully the name and signature of the methods of those
+interfaces have not been changed.
+@item
+The API now uses inheritance so you shouldn't need anymore to access a specific interface
+through SCF queries.
+@item
+The objects are now defined through factories, and that changes radically the way they are
+initialized.
+@item
+For the additional external tools that were previously in Crystal Space such as the soft
+body animation controller and the ragdoll animation node, there are now alternate versions
+of those plugins to be used instead (namely the @code{CS::Animation::iSoftBodyAnimationControl2}
+and @code{CS::Animation::iSkeletonRagdollNode2} interfaces).
+@item
+The former interface @code{iDynamicSystem} has now became @code{CS::Collisions::iCollisionSector}.
+@end itemize
